@@ -2,14 +2,8 @@ import SvgIcon from "@mui/material/SvgIcon";
 
 export default function SitemarkIcon() {
     return (
-        <SvgIcon sx={{ height: 21, width: 100, mr: 2 }}>
-            <svg
-                width={86}
-                height={19}
-                viewBox="0 0 86 19"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-            >
+        <SvgIcon sx={{ height: 21, width: 100, mr: 2 }} viewBox="0 0 86 19">
+            <>
                 <path
                     fill="#B4C0D3"
                     d="m.787 12.567 6.055-2.675 3.485 2.006.704 6.583-4.295-.035.634-4.577-.74-.422-3.625 2.817-2.218-3.697Z"
@@ -46,7 +40,7 @@ export default function SitemarkIcon() {
                     fill="#4876EE"
                     d="M72.106 14.97V7.11h1.835v2.595c.088-.74.31-1.338.665-1.791.481-.603 1.174-.904 2.08-.904h.303v1.98h-.578c-.635 0-1.127.172-1.473.516-.347.334-.52.822-.52 1.463v4.001h-2.312ZM79.92 11.298h.767l2.499 3.672h2.6l-3.169-4.51 2.606-3.35h-2.427l-2.875 3.737V4.5h-2.312v10.47h2.312v-3.672Z"
                 />
-            </svg>
+            </>
         </SvgIcon>
     );
 }

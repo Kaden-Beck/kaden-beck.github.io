@@ -4,7 +4,14 @@ import { dataDisplayCustomizations } from "@/components/shared-theme/customizati
 import { feedbackCustomizations } from "@/components/shared-theme/customizations/feedback";
 import { navigationCustomizations } from "@/components/shared-theme/customizations/navigation";
 import { surfacesCustomizations } from "@/components/shared-theme/customizations/surfaces";
-import { colorSchemes, typography, shadows, shape } from "@/components/shared-theme/themePrimitives";
+import {
+    colorSchemes,
+    typography,
+    shadows,
+    shape,
+} from "@/components/shared-theme/themePrimitives";
+
+import NextLink from "next/link";
 
 const theme = createTheme({
     cssVariables: {
@@ -21,6 +28,16 @@ const theme = createTheme({
         ...feedbackCustomizations,
         ...navigationCustomizations,
         ...surfacesCustomizations,
+        MuiLink: {
+            defaultProps: {
+                component: NextLink,
+            },
+        },
+        MuiButtonBase: {
+            defaultProps: {
+                LinkComponent: NextLink,
+            },
+        },
     },
 });
 

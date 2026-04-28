@@ -10,8 +10,6 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import AppAppBar from "@/components/ui/AppAppBar";
-import Footer from "@/components/ui/Footer";
 
 const steps: { title: string; subtitle?: string; items: string[] }[] = [
     {
@@ -76,9 +74,7 @@ const steps: { title: string; subtitle?: string; items: string[] }[] = [
 
 export default function BrainstormPage() {
     return (
-        <>
-            <AppAppBar />
-            <Container
+        <Container
                 maxWidth="lg"
                 component="main"
                 sx={{ display: "flex", flexDirection: "column", my: 16, gap: 4 }}
@@ -148,7 +144,5 @@ export default function BrainstormPage() {
                     ))}
                 </Box>
             </Container>
-            <Footer />
-        </>
     );
 }
