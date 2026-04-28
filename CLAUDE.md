@@ -11,6 +11,33 @@ This is Kaden Beck's personal website, hosted at kaden-beck.github.io. It is bui
 
 Deployment target is GitHub Pages via the `kaden-beck.github.io` repository.
 
+# Site Structure
+
+## Layout Pattern
+
+All pages use `AppAppBar` + `Container` + `Footer` from `src/components/ui/`. The standard wrapper:
+
+```tsx
+<>
+  <AppAppBar />
+  <Container maxWidth="lg" component="main" sx={{ display: "flex", flexDirection: "column", my: 16, gap: 4 }}>
+    {/* page content */}
+  </Container>
+  <Footer />
+</>
+```
+
+## Pages
+
+- `/` — Blog home (`src/app/page.tsx` → `<Blog />`)
+- `/project-development/brainstorm` — Project brainstorm process guide (`src/app/project-development/brainstorm/page.tsx`), uses MUI Accordions
+
+## Component Conventions
+
+- Pages with interactivity use `"use client"` at the top
+- Shared layout components live in `src/components/ui/`
+- Theme utilities live in `src/components/shared-theme/`
+
 # Agent Skill Files
 
 Additional agent rules and documentation live in `agents/`:
