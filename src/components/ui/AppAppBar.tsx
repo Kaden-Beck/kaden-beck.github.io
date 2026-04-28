@@ -7,13 +7,12 @@ import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Container from "@mui/material/Container";
-import Divider from "@mui/material/Divider";
 import MenuItem from "@mui/material/MenuItem";
 import Drawer from "@mui/material/Drawer";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import ColorModeIconDropdown from "../shared-theme/ColorModeIconDropdown";
-import Sitemark from "./SitemarkIcon";
+import NextLink from "next/link";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
     display: "flex",
@@ -52,25 +51,26 @@ export default function AppAppBar() {
             <Container maxWidth="lg">
                 <StyledToolbar variant="dense" disableGutters>
                     <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center", px: 0 }}>
-                        <Sitemark />
                         <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                            <Button variant="text" color="info" size="small">
-                                Features
+                            <Button href="/" variant="text" color="info" size="small">
+                                Home
+                            </Button>
+                            <Button href="/about-me/" variant="text" color="info" size="small">
+                                About Me
                             </Button>
                             <Button variant="text" color="info" size="small">
-                                Testimonials
+                                Projects
+                            </Button>
+                            <Button
+                                href="/project-development/"
+                                variant="text"
+                                color="info"
+                                size="small"
+                            >
+                                On Software Design
                             </Button>
                             <Button variant="text" color="info" size="small">
-                                Highlights
-                            </Button>
-                            <Button variant="text" color="info" size="small">
-                                Pricing
-                            </Button>
-                            <Button variant="text" color="info" size="small" sx={{ minWidth: 0 }}>
-                                FAQ
-                            </Button>
-                            <Button variant="text" color="info" size="small" sx={{ minWidth: 0 }}>
-                                Blog
+                                On Software Testing
                             </Button>
                         </Box>
                     </Box>
@@ -81,12 +81,6 @@ export default function AppAppBar() {
                             alignItems: "center",
                         }}
                     >
-                        <Button color="primary" variant="text" size="small">
-                            Sign in
-                        </Button>
-                        <Button color="primary" variant="contained" size="small">
-                            Sign up
-                        </Button>
                         <ColorModeIconDropdown />
                     </Box>
                     <Box sx={{ display: { xs: "flex", md: "none" }, gap: 1 }}>
@@ -117,23 +111,32 @@ export default function AppAppBar() {
                                         <CloseRoundedIcon />
                                     </IconButton>
                                 </Box>
-                                <MenuItem>Features</MenuItem>
-                                <MenuItem>Testimonials</MenuItem>
-                                <MenuItem>Highlights</MenuItem>
-                                <MenuItem>Pricing</MenuItem>
-                                <MenuItem>FAQ</MenuItem>
-                                <MenuItem>Blog</MenuItem>
-                                <Divider sx={{ my: 3 }} />
                                 <MenuItem>
-                                    <Button color="primary" variant="contained" fullWidth>
-                                        Sign up
-                                    </Button>
+                                    <NextLink
+                                        href="/about-me/"
+                                        style={{
+                                            textDecoration: "none",
+                                            color: "inherit",
+                                            width: "100%",
+                                        }}
+                                    >
+                                        About Me
+                                    </NextLink>
                                 </MenuItem>
+                                <MenuItem>Projects</MenuItem>
                                 <MenuItem>
-                                    <Button color="primary" variant="outlined" fullWidth>
-                                        Sign in
-                                    </Button>
+                                    <NextLink
+                                        href="/project-development/"
+                                        style={{
+                                            textDecoration: "none",
+                                            color: "inherit",
+                                            width: "100%",
+                                        }}
+                                    >
+                                        On Software Design
+                                    </NextLink>
                                 </MenuItem>
+                                <MenuItem>On Software Testing</MenuItem>
                             </Box>
                         </Drawer>
                     </Box>

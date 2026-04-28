@@ -8,9 +8,35 @@ import { Roboto } from "next/font/google";
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["300", "400", "500", "700"] });
 
+const BASE_URL = "https://kaden-beck.github.io";
+
 export const metadata: Metadata = {
-    title: "kaden-beck.github.io",
-    description: "Personal Website of Kaden Beck",
+    metadataBase: new URL(BASE_URL),
+    title: {
+        default: "Kaden Beck",
+        template: "%s | Kaden Beck",
+    },
+    description:
+        "Personal website of Kaden Beck — software developer writing about building software well.",
+    authors: [{ name: "Kaden Beck", url: BASE_URL }],
+    openGraph: {
+        type: "website",
+        url: BASE_URL,
+        siteName: "Kaden Beck",
+        title: "Kaden Beck",
+        description:
+            "Personal website of Kaden Beck — software developer writing about building software well.",
+    },
+    twitter: {
+        card: "summary",
+        title: "Kaden Beck",
+        description:
+            "Personal website of Kaden Beck — software developer writing about building software well.",
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
 };
 
 export default function RootLayout({

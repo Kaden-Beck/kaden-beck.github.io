@@ -75,74 +75,74 @@ const steps: { title: string; subtitle?: string; items: string[] }[] = [
 export default function BrainstormPage() {
     return (
         <Container
-                maxWidth="lg"
-                component="main"
-                sx={{ display: "flex", flexDirection: "column", my: 16, gap: 4 }}
-            >
-                <Box>
-                    <Typography variant="h1" gutterBottom>
-                        Project Brainstorm
-                    </Typography>
-                    <Typography variant="body1" color="text.secondary">
-                        A structured process for evaluating and planning a new project from idea to
-                        ship.
-                    </Typography>
-                </Box>
+            maxWidth="lg"
+            component="main"
+            sx={{ display: "flex", flexDirection: "column", my: 16, gap: 4 }}
+        >
+            <Box>
+                <Typography variant="h1" gutterBottom>
+                    Project Brainstorm
+                </Typography>
+                <Typography variant="body1" color="text.secondary">
+                    A structured process for evaluating and planning a new project from idea to
+                    ship.
+                </Typography>
+            </Box>
 
-                <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-                    {steps.map((step, index) => (
-                        <Accordion key={index} variant="outlined" defaultExpanded={index === 0}>
-                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                                <Box sx={{ display: "flex", alignItems: "baseline", gap: 2 }}>
-                                    <Typography
-                                        variant="h6"
-                                        component="span"
-                                        color="text.secondary"
-                                        sx={{ minWidth: "2rem" }}
-                                    >
-                                        {index + 1}.
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+                {steps.map((step, index) => (
+                    <Accordion key={index} variant="outlined" defaultExpanded={index === 0}>
+                        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                            <Box sx={{ display: "flex", alignItems: "baseline", gap: 2 }}>
+                                <Typography
+                                    variant="h6"
+                                    component="span"
+                                    color="text.secondary"
+                                    sx={{ minWidth: "2rem" }}
+                                >
+                                    {index + 1}.
+                                </Typography>
+                                <Box>
+                                    <Typography variant="h6" component="span">
+                                        {step.title}
                                     </Typography>
-                                    <Box>
-                                        <Typography variant="h6" component="span">
-                                            {step.title}
-                                        </Typography>
-                                        {step.subtitle && (
-                                            <Typography
-                                                variant="body2"
-                                                color="text.secondary"
-                                                sx={{ mt: 0.25 }}
-                                            >
-                                                {step.subtitle}
-                                            </Typography>
-                                        )}
-                                    </Box>
-                                </Box>
-                            </AccordionSummary>
-                            {(step.items.length > 0 || !step.subtitle) && (
-                                <AccordionDetails>
-                                    {step.items.length > 0 ? (
-                                        <List dense disablePadding>
-                                            {step.items.map((item, i) => (
-                                                <ListItem key={i} sx={{ pl: 2 }}>
-                                                    <ListItemText
-                                                        primary={item}
-                                                        slotProps={{
-                                                            primary: { variant: "body2" },
-                                                        }}
-                                                    />
-                                                </ListItem>
-                                            ))}
-                                        </List>
-                                    ) : (
-                                        <Typography variant="body2" color="text.secondary">
-                                            Go back to step 1 with what you&apos;ve learned.
+                                    {step.subtitle && (
+                                        <Typography
+                                            variant="body2"
+                                            color="text.secondary"
+                                            sx={{ mt: 0.25 }}
+                                        >
+                                            {step.subtitle}
                                         </Typography>
                                     )}
-                                </AccordionDetails>
-                            )}
-                        </Accordion>
-                    ))}
-                </Box>
-            </Container>
+                                </Box>
+                            </Box>
+                        </AccordionSummary>
+                        {(step.items.length > 0 || !step.subtitle) && (
+                            <AccordionDetails>
+                                {step.items.length > 0 ? (
+                                    <List dense disablePadding>
+                                        {step.items.map((item, i) => (
+                                            <ListItem key={i} sx={{ pl: 2 }}>
+                                                <ListItemText
+                                                    primary={item}
+                                                    slotProps={{
+                                                        primary: { variant: "body2" },
+                                                    }}
+                                                />
+                                            </ListItem>
+                                        ))}
+                                    </List>
+                                ) : (
+                                    <Typography variant="body2" color="text.secondary">
+                                        Go back to step 1 with what you&apos;ve learned.
+                                    </Typography>
+                                )}
+                            </AccordionDetails>
+                        )}
+                    </Accordion>
+                ))}
+            </Box>
+        </Container>
     );
 }

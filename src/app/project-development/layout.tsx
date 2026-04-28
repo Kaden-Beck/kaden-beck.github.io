@@ -1,84 +1,35 @@
 "use client";
 
 import { useState } from "react";
-import { usePathname } from "next/navigation";
-import NextLink from "next/link";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import Divider from "@mui/material/Divider";
-import Typography from "@mui/material/Typography";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-
-type FooterNavElement = { url: string; title: string; index: number };
+import FooterNav, { type FooterNavElement } from "@/components/ui/FooterNav";
 
 export default function ProjectDevelopmentLayout({ children }: { children: React.ReactNode }) {
-    const pathname = usePathname();
     const [navElements] = useState<FooterNavElement[]>([
-        { url: "/project-development/overview", title: "Overview", index: 0 },
-        { url: "/project-development/brainstorm", title: "Brainstorm", index: 1 },
+        { url: "/project-development", title: "Overview", index: 0 },
+        { url: "/project-development/brainstorm", title: "Brainstorming", index: 1 },
+        {
+            url: "/project-development/system-architecture",
+            title: "System Architecture Tools",
+            index: 2,
+        },
+        {
+            url: "/project-development/dev-environment",
+            title: "Setting up a Development Environment",
+            index: 3,
+        },
+        {
+            url: "/project-development/version-control",
+            title: "Version Control & Git Workflow",
+            index: 4,
+        },
+        { url: "/project-development/testing", title: "Testing Strategy", index: 5 },
+        { url: "/project-development/ci-cd", title: "CI/CD & Deployment", index: 6 },
     ]);
-
-    const currentIndex = navElements.find((el) => el.url === pathname)?.index ?? -1;
-    const prev = navElements.find((el) => el.index === currentIndex - 1);
-    const next = navElements.find((el) => el.index === currentIndex + 1);
 
     return (
         <>
             {children}
-            <Divider />
-            <Container maxWidth="lg" component="nav">
-                <Box
-                    sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        py: 3,
-                    }}
-                >
-                    {prev ? (
-                        <Button
-                            component={NextLink}
-                            href={prev.url}
-                            variant="outlined"
-                            sx={{ px: 2, py: 1 }}
-                        >
-                            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                                <ArrowBackIcon fontSize="small" />
-                                <Box sx={{ textAlign: "left" }}>
-                                    <Typography variant="caption" sx={{ display: "block" }} color="text.secondary">
-                                        Previous
-                                    </Typography>
-                                    {prev.title}
-                                </Box>
-                            </Box>
-                        </Button>
-                    ) : (
-                        <span />
-                    )}
-                    {next ? (
-                        <Button
-                            component={NextLink}
-                            href={next.url}
-                            variant="outlined"
-                            sx={{ px: 2, py: 1 }}
-                        >
-                            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                                <Box sx={{ textAlign: "right" }}>
-                                    <Typography variant="caption" sx={{ display: "block" }} color="text.secondary">
-                                        Next
-                                    </Typography>
-                                    {next.title}
-                                </Box>
-                                <ArrowForwardIcon fontSize="small" />
-                            </Box>
-                        </Button>
-                    ) : (
-                        <span />
-                    )}
-                </Box>
-            </Container>
+            <FooterNav navElements={navElements} />
         </>
     );
 }
