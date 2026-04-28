@@ -2,6 +2,12 @@
   "name": "kaden-beck.github.io",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.33.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kaden-Beck/kaden-beck.github.io.git"
+  },
+  "homepage": "https://kaden-beck.github.io",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
