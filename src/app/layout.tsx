@@ -1,30 +1,25 @@
-import type { Metadata } from 'next';
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v16-appRouter';
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import theme from './theme';
-import './globals.css';
+import type { Metadata } from "next";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v16-appRouter";
+import ThemeRegistry from "@/components/ThemeRegistry";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: 'kaden-beck.github.io',
-  description: 'Personal Website of Kaden Beck',
+    title: "kaden-beck.github.io",
+    description: "Personal Website of Kaden Beck",
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang='en'>
-      <body>
-        <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            {children}
-          </ThemeProvider>
-        </AppRouterCacheProvider>
-      </body>
-    </html>
-  );
+    return (
+        <html lang="en">
+            <body>
+                <AppRouterCacheProvider>
+                    <ThemeRegistry>{children}</ThemeRegistry>
+                </AppRouterCacheProvider>
+            </body>
+        </html>
+    );
 }
