@@ -11,15 +11,15 @@ export const lvtInternship = {
     location: "Utah",
     period: "2026",
     summary:
-        "Embedded with the backend QA and platform team, writing automated tests for a distributed, event-driven system and prototyping internal tooling to make test results easier to trust and act on.",
+        "Assisted the Software Quality Assurance Team for full stack QA, writing automated tests for a distributed, event-driven system and prototyping internal tooling to make test results easier to trust and act on.",
     highlights: [
         {
             title: "End-to-end UI automation",
-            body: "Built a Playwright + TypeScript suite for a video-library feature, covering table sorting and multi-column filtering, search and result counts, downloads and clipboard actions, a details drawer, and error states — structured with the Page Object Model and shared fixtures.",
+            body: "Built a Playwright + TypeScript suite for a complete page of customer facing website. Handled complex UI issues including reactive elements, asynchronous data streamed via CDN or Network Devices. Used Page Object Models and composable functions to build efficient and reusable tooling.",
         },
         {
             title: "Backend integration & smoke testing",
-            body: "Wrote Python / pytest tests against a federated GraphQL API (Apollo Federation), authenticating with generated JWTs, testing subgraphs in isolation and stitched together, and validating that GraphQL mutations actually persisted across relational, document, and search datastores.",
+            body: "Wrote pytest tests against a federated GraphQL API, authenticating with generated JWTs, testing subgraphs in isolation and stitched together. Wrote Smoke and Canary tests that were used for CI/CD deployments across Kubernetes clusters. Automated regression tests were used to supplement integration tests to support the SLDC and release process.",
         },
         {
             title: "Async & event-driven test coverage",
@@ -31,6 +31,8 @@ export const lvtInternship = {
         },
     ],
     skills: [
+        "Jira", 
+        "Agile/ ScrumBan",
         "Python",
         "pytest",
         "Playwright",
@@ -51,7 +53,7 @@ export const lvtInternship = {
 };
 
 export const education = {
-    school: "Brigham Young University–Idaho (BYU-Pathway)",
+    school: "Brigham Young University-Idaho",
     program: "B.S. Computer Science / Software Development",
     coursework: [
         "Software Testing & Test Automation",
