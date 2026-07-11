@@ -58,8 +58,11 @@ export default function AppAppBar() {
                             <Button href="/about-me/" variant="text" color="info" size="small">
                                 About Me
                             </Button>
-                            <Button variant="text" color="info" size="small">
+                            <Button href="/projects/" variant="text" color="info" size="small">
                                 Projects
+                            </Button>
+                            <Button href="/experience/" variant="text" color="info" size="small">
+                                Experience
                             </Button>
                             <Button
                                 href="/project-development/"
@@ -68,9 +71,6 @@ export default function AppAppBar() {
                                 size="small"
                             >
                                 On Software Design
-                            </Button>
-                            <Button variant="text" color="info" size="small">
-                                On Software Testing
                             </Button>
                         </Box>
                     </Box>
@@ -123,7 +123,30 @@ export default function AppAppBar() {
                                         About Me
                                     </NextLink>
                                 </MenuItem>
-                                <MenuItem>Projects</MenuItem>
+                                <MenuItem>
+                                    <NextLink
+                                        href="/projects/"
+                                        style={{
+                                            textDecoration: "none",
+                                            color: "inherit",
+                                            width: "100%",
+                                        }}
+                                    >
+                                        Projects
+                                    </NextLink>
+                                </MenuItem>
+                                <MenuItem>
+                                    <NextLink
+                                        href="/experience/"
+                                        style={{
+                                            textDecoration: "none",
+                                            color: "inherit",
+                                            width: "100%",
+                                        }}
+                                    >
+                                        Experience
+                                    </NextLink>
+                                </MenuItem>
                                 <MenuItem>
                                     <NextLink
                                         href="/project-development/"
@@ -136,7 +159,6 @@ export default function AppAppBar() {
                                         On Software Design
                                     </NextLink>
                                 </MenuItem>
-                                <MenuItem>On Software Testing</MenuItem>
                             </Box>
                         </Drawer>
                     </Box>

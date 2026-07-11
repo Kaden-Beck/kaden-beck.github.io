@@ -12,6 +12,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 1,
         },
         {
+            url: `${BASE_URL}/about-me`,
+            changeFrequency: "monthly",
+            priority: 0.9,
+        },
+        {
+            url: `${BASE_URL}/projects`,
+            changeFrequency: "monthly",
+            priority: 0.9,
+        },
+        {
+            url: `${BASE_URL}/projects/mtg-app`,
+            changeFrequency: "monthly",
+            priority: 0.7,
+        },
+        {
+            url: `${BASE_URL}/experience`,
+            changeFrequency: "monthly",
+            priority: 0.9,
+        },
+        {
             url: `${BASE_URL}/project-development`,
             changeFrequency: "monthly",
             priority: 0.8,

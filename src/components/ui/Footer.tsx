@@ -2,23 +2,24 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { contact } from "@/data/site";
+import SocialLinks from "@/components/ui/SocialLinks";
+
+const footerNav = [
+    { label: "Home", href: "/" },
+    { label: "About Me", href: "/about-me/" },
+    { label: "Projects", href: "/projects/" },
+    { label: "Experience", href: "/experience/" },
+];
 
 function Copyright() {
     return (
         <Typography variant="body2" sx={{ color: "text.secondary", mt: 1 }}>
             {"Copyright © "}
-            <Link
-                href="https://github.com/Kaden-Beck"
-                sx={{
-                    color: "text.secondary",
-                }}
-            >
+            <Link href={contact.github} sx={{ color: "text.secondary" }}>
                 Kaden Beck
             </Link>
             &nbsp;
@@ -44,60 +45,43 @@ export default function Footer() {
                 <Box
                     sx={{
                         display: "flex",
+                        flexDirection: { xs: "column", sm: "row" },
                         justifyContent: "space-between",
+                        alignItems: { xs: "flex-start", sm: "center" },
+                        gap: 2,
                         pt: { xs: 4, sm: 8 },
                         width: "100%",
                     }}
                 >
                     <div>
-                        <Link
-                            variant="body2"
-                            href="#"
-                            sx={{
-                                color: "text.secondary",
-                            }}
+                        <Stack
+                            direction="row"
+                            spacing={0}
+                            useFlexGap
+                            sx={{ flexWrap: "wrap", alignItems: "center" }}
                         >
-                            Privacy Policy
-                        </Link>
-                        <Typography sx={{ display: "inline", mx: 0.5, opacity: 0.5 }}>
-                            &nbsp;•&nbsp;
-                        </Typography>
-                        <Link
-                            variant="body2"
-                            href="#"
-                            sx={{
-                                color: "text.secondary",
-                            }}
-                        >
-                            Terms of Service
-                        </Link>
+                            {footerNav.map((item, index) => (
+                                <React.Fragment key={item.href}>
+                                    {index > 0 && (
+                                        <Typography
+                                            sx={{ display: "inline", mx: 0.5, opacity: 0.5 }}
+                                        >
+                                            &nbsp;•&nbsp;
+                                        </Typography>
+                                    )}
+                                    <Link
+                                        variant="body2"
+                                        href={item.href}
+                                        sx={{ color: "text.secondary" }}
+                                    >
+                                        {item.label}
+                                    </Link>
+                                </React.Fragment>
+                            ))}
+                        </Stack>
                         <Copyright />
                     </div>
-                    <Stack
-                        direction="row"
-                        spacing={1}
-                        useFlexGap
-                        sx={{ justifyContent: "left", color: "text.secondary" }}
-                    >
-                        <IconButton
-                            color="inherit"
-                            size="small"
-                            href="https://github.com/Kaden-Beck"
-                            aria-label="GitHub"
-                            sx={{ alignSelf: "center" }}
-                        >
-                            <GitHubIcon />
-                        </IconButton>
-                        <IconButton
-                            color="inherit"
-                            size="small"
-                            href="https://www.linkedin.com/in/kadenbbeck//"
-                            aria-label="LinkedIn"
-                            sx={{ alignSelf: "center" }}
-                        >
-                            <LinkedInIcon />
-                        </IconButton>
-                    </Stack>
+                    <SocialLinks size="small" />
                 </Box>
             </Container>
         </React.Fragment>
